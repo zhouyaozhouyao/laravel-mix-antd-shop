@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,7 +8,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-// 完整引入 Antd UI 组件库
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,8 +17,6 @@ window.Vue = require('vue');
  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-import Hello from './components/Hello';
-
 // const files = require.context('./', true, /\.vue$/i)
 
 // files.keys().map(key => {
@@ -33,7 +29,29 @@ import Hello from './components/Hello';
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// 完整引入 Antd UI 组件库
+import Antd from 'ant-design-vue'
+import App from './App.vue'
+// import VueRouter from 'vue-router'
+import 'ant-design-vue/dist/antd.css'
+import router from './router/router'
+import Viser from 'viser-vue'
+import store from './store'
+import promission from './promission'
+
+Vue.config.productionTip = false;
+Vue.use(Antd);
+Vue.use(Viser);
+// Vue.use(VueRouter);
+
+
+
+
+
+
 const app = new Vue({
-    el: '#app',
-    render: h => h(Hello)
+  el: '#app',
+  router,
+  store,
+  render: h => h(App)
 });
